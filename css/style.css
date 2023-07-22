@@ -69,7 +69,7 @@ ul {
 a {
   text-decoration: none;
 }
-img {
+img:not(.nav-logo) {
   width: 100%;
   display: block;
 }
@@ -178,6 +178,130 @@ p {
 Navbar
 ===============
 */
+.navbar{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  background:var(--clr-white) ;
+  box-shadow: var(--dark-shadow);
+  z-index: 2;
+}
+
+.nav-icons{
+  display: none;
+}
+
+.nav-center{
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-toggle {
+  background: transparent;
+  border: transparent;
+  font-size: 1.5rem;
+  color: var(--clr-primary-5);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.nav-toggle:hover {
+  transform: scale(1.2);
+}
+
+.nav-link {
+  display: block;
+  padding: 1rem 2rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  transition: var(--transition);
+  color: var(--clr-grey-1);
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.nav-link:hover {
+  color: var(--clr-primary-1);
+  background: var(--clr-primary-8);
+  padding-left: 2.25rem;
+}
+
+/* 280px */
+.nav-links {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.show-links{
+  height: 280px;
+}
+
+@media screen and (min-width: 992px){
+  /* hide toggle button */
+  .navbar {
+    padding: 1rem 2rem;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .nav-center{
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-links{
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .nav-header{
+    padding: 0 0;
+  }
+  .nav-link{
+    padding: 0 0;
+    margin-right: 0.7rem;
+  }
+  .nav-link:hover{
+    padding: 0;
+    color: var(--clr-primary-5);
+    background: transparent;
+  }
+  .nav-icons{
+    display: flex;
+  }
+  .nav-icon{
+    margin-right: 0.7rem;
+    color: var(--clr-primary-5);
+    font-size: 1.2rem;
+    transition: var(--transition);
+  }
+  .nav-icon:hover{
+    color: var(--clr-primary-8);
+  }
+}
+
+
+
+.nav-header h2{
+  font-weight: bolder;
+  font-family: var(--ff-primary);
+
+  letter-spacing: 0;
+}
+.nav-header span{
+  font-family: var(--ff-primary);
+  font-weight:bolder;
+
+}
 /*
 =============== 
 Hero
@@ -363,7 +487,8 @@ Featured Tours
 }
 .tour-img{
   height: 15rem;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .tour-date {
   position: absolute;
@@ -447,6 +572,18 @@ Contact
   text-transform: capitalize;
   border: transparent;
 }
+.form-control::-webkit-input-placeholder{
+  color: inherit;
+}
+.form-control::-moz-placeholder{
+  color: inherit;
+}
+.form-control:-ms-input-placeholder{
+  color: inherit;
+}
+.form-control::-ms-input-placeholder{
+  color: inherit;
+}
 .form-control::placeholder{
   color: inherit;
 }
@@ -502,7 +639,8 @@ Gallery
 
 .gallery-img {
   height: 17rem;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: var(--transition);
 }
 
